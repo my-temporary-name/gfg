@@ -8,7 +8,7 @@
 # 1. Consider every items as minimum one by one ( and pick adjacent greater value) [7,9,12] , [3,4,7], [2,3,4], ....
 # 2. minimum of all the values is 2
 
-
+# Time complexity: O(nlogn)
 
 
 def mindiff(arr,m):
