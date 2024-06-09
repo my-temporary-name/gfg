@@ -1,4 +1,4 @@
-# BFS of Disconnected Graph
+# BFS of Disconnected Graph, TC = O(V+E)
 
 # Disconnected Graph is a graph in which there is no path between some pairs of vertices.
 # Also, in a disconnected graph, there may be some vertices that are unreachable from all other vertices.
