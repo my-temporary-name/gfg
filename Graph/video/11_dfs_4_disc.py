@@ -1,4 +1,4 @@
-# DFS for Disconnect Graph:
+# DFS for Disconnect Graph: Tc = O(V+E)
 def DFS_Rec(adj,s,visited):
     visited[s] = True
     print(s, end = " ")
@@ -10,9 +10,12 @@ def DFS_Rec(adj,s,visited):
 def DFS(adj,s):
     visited = [False]*len(adj)
     # modified DFS to handle disconnected graph
+    res = 0 # to count number of connected components
     for u in range(len(adj)):
         if visited[u]==False:
+            res+=1
             DFS_Rec(adj, u, visited)
+    print("\nNumber of connected components:",res)
 
 def printGraph(adj):
     for u, l in enumerate(adj):
