@@ -26,20 +26,20 @@ def addEdge(adj,u,v):
     adj[u].append(v)
 
 def dijkstra(graph, src):
-    V = len(graph)
-    dist = [float('inf') for i in range(V)]
-    dist[src] = 0
+    V = len(graph) # Number of vertices
+    dist = [float('inf') for i in range(V)] # To store the shortest distance from source to vertex i.
+    dist[src] = 0  # Distance from source to source is 0.
     fin = [False for i in range(V)] # To check if the vertex is finalized or not.
 
-    for count in range(V-1):
-        u = -1
-        for i in range(V):
-            if fin[i]==False and (u==-1 or dist[i]<dist[u]):
-                u=i
-        fin[u] = True
-        for x in range(V):
-            if(fin[x]==False and graph[u][x]!=0):
-                dist[x] = min(dist[x], dist[u]+graph[u][x])
+    for count in range(V-1): # V-1 because we need to find the shortest path for V-1 vertices.
+        u = -1 # Initialize u to -1
+        for i in range(V): # Find the vertex with minimum distance from the source.
+            if fin[i]==False and (u==-1 or dist[i]<dist[u]): # If the vertex is not finalized and the distance is less than the minimum distance.
+                u=i # Update u to i.
+        fin[u] = True # Mark the vertex as finalized.
+        for x in range(V): # Relax all the vertices from u.
+            if(fin[x]==False and graph[u][x]!=0): # If the vertex is not finalized and the edge is not 0.
+                dist[x] = min(dist[x], dist[u]+graph[u][x]) # Update the distance of the vertex.
     return dist 
 
 v = 4 
