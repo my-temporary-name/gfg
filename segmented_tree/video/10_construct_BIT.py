@@ -1,4 +1,5 @@
 # Construct a Binary Indexed Tree (Fenwick Tree) from a given array
+# TC = O(nlogn)
 
 arr=[10, 20, 30, 40, 50]
 n=len(arr)
