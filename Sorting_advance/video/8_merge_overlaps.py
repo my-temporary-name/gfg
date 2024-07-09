@@ -24,10 +24,11 @@ def mergeIntervals(arr):
         else:
             res = res+1
             arr[res] = arr[i]
+    print(arr)
     
     for i in range(res+1):
         print(arr[i], end=" ")
 
-arr = [[5,10], [3,15], [18,30], [2,7]]
+arr = [[1,3],[2,6],[8,10],[15,18]]
 
 mergeIntervals(arr) # [2,15] [18,30]

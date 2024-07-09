@@ -14,11 +14,11 @@ for i in arr:
 # Bottom row (reversed)
 # left column (reversed)
 
-r =len(arr)
+r = len(arr)
 c = len(arr[0])
 
-top =0
-left =0
+top = 0
+left = 0
 right = c-1
 bottom = r-1
 

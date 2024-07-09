@@ -9,6 +9,6 @@ def permute(s,i):
     for j in range(i,n):
         s[i],s[j] = s[j],s[i]
         permute(s,i+1)
-        s[i],s[j] = s[j],s[i]
+        s[i],s[j] = s[j],s[i] 
 
-print(permute(list("abc"),0)) # abc acb bac bca cba cab None
+print(permute(list("01"),0)) # abc acb bac bca cba cab None
