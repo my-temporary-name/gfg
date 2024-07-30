@@ -84,3 +84,29 @@ if __name__ == '__main__':
 
 	# Function call
 	obj.infixToPostfix(exp)
+
+
+# Second
+
+def InfixToPostfix(exp):
+    operators = ["+","-","*","/","^","(",")"]
+    precedence = {"+":1, "-":1, "*":2, "/":2, "^":3}
+    output=""
+    stack = []
+    for i in exp:
+        if i not in operators:
+            output+=i
+        elif i=="(":
+            stack.append(i)
+        elif i==")":
+            while stack and stack[-1]!="(":
+                output+=stack.pop()
+            stack.pop()
+        else:
+            while stack and stack[-1]!="(" and precedence[i]<=precedence[stack[-1]]:
+                output+=stack.pop()
+            stack.append(i)
+    
+    while stack:
+        output+=stack.pop()
+    return output

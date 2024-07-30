@@ -98,3 +98,56 @@ def infixToPrefix(infix):
 s = "(A-B/C)*(A/K-L)"
 print( infixToPrefix(s))
 
+# Second
+def InfixToPostfix(exp):
+    operators = ["+","-","*","/","^","(",")"]
+    precedence = {"+":1, "-":1, "*":2, "/":2, "^":3}
+    output=""
+    stack = []
+    for i in exp:
+        if i not in operators:
+            output+=i
+        elif i=="(":
+            stack.append(i)
+        elif i==")":
+            while stack and stack[-1]!="(":
+                output+=stack.pop()
+            stack.pop()
+        else:
+            if i=="^":
+                while stack and stack[-1]!="(" and precedence[i]<=precedence[stack[-1]]:
+                    output+=stack.pop()
+                    # stack.append(i)
+            else:
+                while stack and stack[-1]!="(" and precedence[i]<precedence[stack[-1]]:
+                    output+=stack.pop()
+            stack.append(i)
+    
+    while stack:
+        output+=stack.pop()
+    print(output)
+    return output
+
+
+# Function to convert infix expression to prefix
+def infixToPrefix(expression):
+	length = len(expression)
+	reversed_expression = expression[::-1]
+
+
+	for i in range(length):
+		if reversed_expression[i] == '(':
+			reversed_expression[i] = ')'
+		elif reversed_expression[i] == ')':
+			reversed_expression[i] = '('
+
+
+	prefix = InfixToPostfix(reversed_expression)
+	prefix = prefix[::-1]
+	return prefix
+
+
+# Driver code
+if __name__ == '__main__':
+	expression = "x+y*z/w+u"
+	print(infixToPrefix(expression))
