@@ -63,7 +63,7 @@ print(longDist(str))
 def LD(s):
     n = len(s)
     res  =0
-    prev = [-1]*256 
+    prev = [-1]*256  
     i =0
     for j in range(n):
         i = max(i, prev[ord(s[j])]+1)
